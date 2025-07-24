@@ -13,11 +13,21 @@
  * [Authors](/doc/authors.md)
 
 
-## Authors
-* :technologist: Félix García-Carballeira
-* :technologist: Alejandro Calderón Mateos
-* :technologist: Diego Camarmas Alonso
-* :technologist: Dario Muñoz Muñoz
-* :technologist: Elias del Pozo Puñal
+##  Examples of Ad-Hoc XPN with Apache Spark
+      
+   * Word count with Apache Spark <img width="650" height="1">
 
+      ```bash
+      : 1. To start 3 containers
+      ./xpn_docker.sh start 3
+      ./xpn_docker.sh sleep 5
+
+      : 2. Work from container 1
+      ./xpn_docker.sh exec 1 ./spark/quixote-local.sh
+      ./xpn_docker.sh exec 1 ./spark/quixote-xpn.sh
+
+      : 3. Stop all containers
+      ./xpn_docker.sh stop
+      ```
+      
 

@@ -8,7 +8,7 @@
  * [3. Some xpn-docker use cases](https://github.com/xpn-arcos/xpn-docker/#3-some-xpn-docker-use-cases)
    * [3.1 Examples using XPN Ad-Hoc](https://github.com/xpn-arcos/xpn-docker/#31-examples-using-xpn-ad-hoc)
    * [3.2 Examples of benchmarks with XPN Ad-Hoc](https://github.com/xpn-arcos/xpn-docker/#32-examples-of-benchmarks-with-xpn-ad-hoc)
-   * [3.3 Examples of Apache Spark and Ad-Hoc XPN](https://github.com/xpn-arcos/xpn-docker/#33-examples-of-ad-hoc-xpn-with-apache-spark)
+   * [3.3 Example  of Apache Spark and Ad-Hoc XPN](https://github.com/xpn-arcos/xpn-docker/#33-example-of-ad-hoc-xpn-with-apache-spark)
  * [4. Multiple containers on multiple nodes](https://github.com/xpn-arcos/xpn-docker/#4-multiple-containers-on-multiple-nodes)
 
 
@@ -243,11 +243,9 @@ The first time xpn-docker is deployed or when the ```docker/dockerfile``` is upd
   <tr>
   <td>
 MDtest
-<img width="325" height="1">
   </td>
   <td>
 IOR
-<img width="325" height="1">
   </td>
   </tr>
   <tr>
@@ -292,13 +290,13 @@ IOR
   </html>
 
 
-### 3.3 Examples of Ad-Hoc XPN with Apache Spark
+### 3.3 Example of Ad-Hoc XPN with Apache Spark
 
 <html>
  <table>
   <tr>
   <td>
-  Word count <img width="650" height="1">
+  Word count
   </td>
   </tr>
   <tr>
@@ -327,7 +325,7 @@ IOR
 
 ## 4. Multiple containers on multiple nodes
 
-   The general steps are:
+   An example using multiples nodes is:
    ```bash
    : Step 1: Starting docker swarm
    ./xpn-docker.sh swarm-create machinefile
@@ -348,6 +346,12 @@ IOR
    ./xpn-docker.sh swarm-destroy
    ```
 
+   The general steps are:
+   1. Starting docker swarm
+   2. Starting containers
+   3. Doing execution
+   4. Stopping containers (undoing 2)
+   5. Stopping docker swarm (undoing 1)
 
 
 ## Authors

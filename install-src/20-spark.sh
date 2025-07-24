@@ -15,9 +15,9 @@ sudo apt install python3-py4j
 # 3) Download and install Spark
 mkdir -p ${DESTINATION_PATH}
 wget https://dlcdn.apache.org/spark/spark-4.0.0/spark-4.0.0-bin-hadoop3.tgz -O ${DESTINATION_PATH}/spark-4.0.0-bin-hadoop3.tgz
-tar zxf ${DESTINATION_PATH}/spark-4.0.0-bin-hadoop3.tgz     -C ${DESTINATION_PATH}
-mv ${DESTINATION_PATH}/spark-4.0.0-bin-hadoop3 ${DESTINATION_PATH}/spark
-rm ${DESTINATION_PATH}/spark-4.0.0-bin-hadoop3.tgz
+tar zxf ${DESTINATION_PATH}/spark-4.0.0-bin-hadoop3.tgz -C ${DESTINATION_PATH}
+mv ${DESTINATION_PATH}/spark-4.0.0-bin-hadoop3             ${DESTINATION_PATH}/spark
+rm -fr  ${DESTINATION_PATH}/spark-4.0.0-bin-hadoop3.tgz
 
 # 4) PATH
 echo "# Spark"                                          >> /home/lab/.profile
