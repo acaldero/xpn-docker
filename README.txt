@@ -114,19 +114,25 @@ Using xpn-docker
 
 * Summary:
 
-      ------------------------------------------------------------------------------------------------
-     |          Action                                                      |         Command         |
-      ------------------------------------------------------------------------------------------------
-     | First time + "each time ./docker/dockerfile is updated"              | ./xpndocker.sh build    |
-      ------------------------------------------------------------------------------------------------
-     |                        | To spin up 3 containers                     | ./xpndocker.sh start 3  |
-     |                        | To get into container 1                     | ./xpndocker.sh bash 1   |
-     | Work session           | To exit from container                      | exit                    |
-     |                        | To spin down all containers                 | ./xpndocker.sh stop     |
-      ------------------------------------------------------------------------------------------------
-     | Options for debugging  | To check running containers                 | ./xpndocker.sh status   |
-     |                        | To get the containers internal IP addresses | ./xpndocker.sh network  |
-      ------------------------------------------------------------------------------------------------
+      ---------------------------------------------------------------------------------------------------------------
+     |          Action                                                    |         Command                          |
+      ---------------------------------------------------------------------------------------------------------------
+     |                      | Build image                                 | ./xpndocker.sh build                     |
+     | Container image      | IF (first time OR dockerfile updated)       |                                          |
+     |                      | Save image                                  | ./xpndocker.sh image-save                |
+     |                      | Load image                                  | ./xpndocker.sh image-load                |
+      ---------------------------------------------------------------------------------------------------------------
+     | Multiple nodes       | Starting docker swarm                       | ./xpndocker.sh swarm-create machinefile  |
+     |                      | Stopping docker swarm                       | ./xpndocker.sh swarm-destroy             |
+      ---------------------------------------------------------------------------------------------------------------
+     |                      | To spin up 3 containers                     | ./xpndocker.sh start 3                   |
+     | Work session         | To get into container 1                     | ./xpndocker.sh bash 1                    |
+     |                      | To exit from container                      | exit                                     |
+     |                      | To spin down all containers                 | ./xpndocker.sh stop                      |
+      ---------------------------------------------------------------------------------------------------------------
+     | Get information      | To check running containers                 | ./xpndocker.sh status                    |
+     |                      | To get the containers internal IP addresses | ./xpndocker.sh network                   |
+      ---------------------------------------------------------------------------------------------------------------
 
 * Please beware of:
 

@@ -1,19 +1,22 @@
-# Expand Docker -- version 3.3
+# xpn-docker: Expand Docker
+
+[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+[![Release](https://img.shields.io/badge/Stable-3.3-green.svg)](https://github.com/xpn-arcos/xpn-docker/releases/tag/v3.3)
 
 
 ## Contents
 
- * [1. Summary of using xpn-docker](https://github.com/xpn-arcos/xpn-docker/#1-summary-of-using-xpn-docker)
- * [2. Build the container image](https://github.com/xpn-arcos/xpn-docker/#2-build-the-container-image)
- * [3. Some xpn-docker use cases](https://github.com/xpn-arcos/xpn-docker/#3-some-xpn-docker-use-cases)
-   * [3.1 Examples using XPN Ad-Hoc](https://github.com/xpn-arcos/xpn-docker/#31-examples-using-xpn-ad-hoc)
-   * [3.2 Examples of benchmarks with XPN Ad-Hoc](https://github.com/xpn-arcos/xpn-docker/#32-examples-of-benchmarks-with-xpn-ad-hoc)
-   * [3.3 Example  of Apache Spark and Ad-Hoc XPN](https://github.com/xpn-arcos/xpn-docker/#33-example-of-ad-hoc-xpn-with-apache-spark)
- * [4. Multiple containers on multiple nodes](https://github.com/xpn-arcos/xpn-docker/#4-multiple-containers-on-multiple-nodes)
+ 1. [Summary of using xpn-docker](/docs/summary.md)
+ 2. [Build the container image](/docs/image.md)
+ 3. Some xpn-docker use cases:
+    1. [Examples using XPN Ad-Hoc](/docs/usecase-xpn.md)
+    2. [Examples of benchmarks with XPN Ad-Hoc](/docs/usecase-benchmarks.md)
+    3. [Example  of Apache Spark and Ad-Hoc XPN](/docs/usecase-spark.md)
+ 4. [Multiple containers on multiple nodes](/docs/swarm.md)
+ 5. [Authors](/docs/authors.md)
 
 
-## 1. Summary of using xpn-docker
-
+## 1. Summary xpn-docker options
 
   <html>
   <table>
@@ -42,7 +45,7 @@
   </tr>
 
   <tr>
-  <td rowspan="3">
+  <td rowspan="2">
   Multiple nodes
   </td>
   <td>  
@@ -50,11 +53,6 @@
   </td>
   <td>
   <code>./xpn-docker.sh swarm-create machinefile</code>
-  </td>
-  </tr>
-  <tr>
-  <td colspan="2">
-  [[ Work session ]]
   </td>
   </tr>
   <tr>
@@ -130,7 +128,7 @@ The first time xpn-docker is deployed or when the ```docker/dockerfile``` is upd
        ```
 
   * To build and distribute the container image to multiple nodes:
-    * Build and save the image to the ```xpn_docker.tgz``` file by using:
+    1. Build and save the image to the ```xpn_docker.tgz``` file by using:
         ```bash
        ./xpn-docker.sh clean-build
         ./xpn-docker.sh image-save
@@ -227,7 +225,7 @@ The first time xpn-docker is deployed or when the ```docker/dockerfile``` is upd
   </html>
 
 
-  Then, the general steps are:
+  The general steps are:
    1. Starting 3 containers
    2. Then, do some work from container 1
       * Bash on container 1
