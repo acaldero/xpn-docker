@@ -16,9 +16,56 @@
 </details>
 
 
+  ```mermaid
+flowchart LR
+    A([Start]) --> B("First time OR dockerfile updated?")
+    B -- Yes --> CImage_local
+    B -- No  --> D
+
+    subgraph CImage_local [1 Build image]
+        A2[./xpn_docker.sh build] 
+    end
+
+    CImage_local --> C("multinode image?")
+    C -- Yes --> CImage_swarm
+    C -- No  --> D
+
+    subgraph CImage_swarm [2 Deploy image]
+        direction TB
+        A4[./xpn_docker.sh image-save] --> A5[./xpn_docker.sh image-load]
+    end
+
+    CImage_swarm --> D("multinode execution?")
+    D -- Yes --> MNodes
+    D -- No  --> WSession
+
+    subgraph MNodes [3 Start swarm]
+        direction TB
+        A6[./xpn-docker.sh swarm-create machinefile]
+    end
+
+    MNodes --> WSession
+
+    subgraph WSession [4 Work Session]
+        direction TB
+        C1[./xpn_docker.sh start 3] --> C2
+        C2[./xpn_docker.sh bash 1]  --> C3
+        C3[exit] --> C4[./xpn_docker.sh stop]
+    end
+
+    WSession --> E("multinode execution?")
+    E -- Yes --> MNodes_stop
+    E -- No  --> Z
+
+    subgraph MNodes_stop [5 Stop swarm]
+        A7[./xpn-docker.sh swarm-destroy]
+    end
+
+    MNodes_stop --> Z([Stop])
+  ```
+
 
 ## Summary of using xpn-docker
-
 
   <html>
   <table>
@@ -122,5 +169,4 @@
    * Please make a backup of your work "frequently" (just in case).
    * You might need to use "sudo" before ./xpn_docker.sh if your user doesn't belong to the docker group
      * It could be solved by using "sudo usermod -aG docker ${USER}"
-
 
