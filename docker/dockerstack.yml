@@ -16,7 +16,7 @@ services:
         source: ..
         target: /shared
       - type: bind
-        source: /tmp
+        source: /nvme
         target: /storage_local
       - type: bind
         source: /dev/shm
