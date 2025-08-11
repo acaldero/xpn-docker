@@ -25,7 +25,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4  
     - name: Build & Push Docker image
-      run:  docker buildx build --no-cache --platform=linux/amd64 --build-arg UID=$(id -u) --build-arg GID=$(id -g) -t ghcr.io/${{ github.repository_owner }}/xpn-docker:${GITHUB_SHA} -t ghcr.io/${{ github.repository_owner }}/xpn-docker -f ./docker/dockerfile  --push .
+      run:  docker buildx build --no-cache --platform=linux/amd64,linux/arm64 --build-arg UID=$(id -u) --build-arg GID=$(id -g) -t ghcr.io/${{ github.repository_owner }}/xpn-docker:${GITHUB_SHA} -t ghcr.io/${{ github.repository_owner }}/xpn-docker -f ./docker/dockerfile  --push .
 
   push-xpn-docker:    
     name: Push XPN Docker Image
