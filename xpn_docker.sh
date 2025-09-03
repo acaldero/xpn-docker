@@ -515,7 +515,13 @@ do
              bash)
                 # Get parameters
                 shift
-                CO_ID=$1
+
+                if [ $# -lt 1 ]; then
+                  CO_ID=1
+                else
+                  CO_ID=$1
+                fi
+
                 CO_NC=$(docker ps -f name=$DOCKER_PREFIX_NAME -q | wc -l)
 
                 xpn_docker_bash ${CO_ID} ${CO_NC}
