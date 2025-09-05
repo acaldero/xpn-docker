@@ -11,7 +11,7 @@ services:
       args:
         UID: ${HOST_UID}
         GID: ${HOST_GID}
-    image: xpn-docker
+    image: expandfs/xpn-docker
     volumes:
       - type: bind
         source: ..
