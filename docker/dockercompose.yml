@@ -22,7 +22,18 @@ services:
       - type: bind
         source: /lib/modules
         target: /lib/modules
-      - shared:/shared
+      - type: bind
+        source: ..
+        target: /shared
+      - type: bind
+        source: /nvme
+        target: /storage_local
+      - type: bind
+        source: /dev/shm
+        target: /storage_shm
+      - type: bind
+        source: ..
+        target: /storage_backend
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - b0
